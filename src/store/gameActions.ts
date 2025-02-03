@@ -1,3 +1,4 @@
+import { gameDetailsActions } from "./gameDetailsSlice";
 import { gameActions } from "./gameSlice";
 import { AppDispatch } from "./store";
 
@@ -33,6 +34,47 @@ export const fetchGameData = () => {
         dispatch(gameActions.fetchGameFailure(error.message));
       } else {
         dispatch(gameActions.fetchGameFailure("An unknown error occurred"));
+      }
+    }
+  };
+};
+
+export const fetchGameDetailsData = (id: string) => {
+  return async (dispatch: AppDispatch) => {
+    dispatch(gameDetailsActions.fetchGameDetailsRequest());
+
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "92d74b8d63msh2f2e37c44d9a35ap1bf29fjsnaab5de05cdbf",
+            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Could not fetch game data!");
+      }
+
+      return await response.json();
+    };
+
+    try {
+      const data = await fetchData();
+      dispatch(gameDetailsActions.fetchGameDetailsSuccess(data));
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        dispatch(gameDetailsActions.fetchGameDetailsFailure(error));
+      } else {
+        dispatch(
+          gameDetailsActions.fetchGameDetailsFailure(
+            "Could not fetch game details!"
+          )
+        );
       }
     }
   };

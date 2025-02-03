@@ -1,17 +1,17 @@
 import { Game } from "../helpers/types";
+import { Link } from "react-router-dom";
 
 export const GameCard: React.FC<Game> = ({
   thumbnail,
   title,
   short_description,
   id,
-  game_url,
   platform,
   genre,
   release_date,
 }) => {
   return (
-    <a href={game_url} target="_blank">
+    <Link to={id.toString()}>
       <div
         key={id}
         className="max-w-sm rounded-lg h-[480px] shadow-sm hover:scale-105 duration-200 dark:bg-gray-800 dark:border-gray-700"
@@ -34,6 +34,6 @@ export const GameCard: React.FC<Game> = ({
           <p>{release_date}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };

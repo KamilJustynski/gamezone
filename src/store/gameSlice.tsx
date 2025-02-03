@@ -3,7 +3,7 @@ import { Game } from "../helpers/types";
 
 const games: Game[] = [];
 
-export const gameSlice = createSlice({
+const gameSlice = createSlice({
   name: "games",
   initialState: {
     games,
