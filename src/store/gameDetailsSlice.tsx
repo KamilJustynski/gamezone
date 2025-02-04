@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Game } from "../helpers/types";
+import { GameDetailsScheme } from "../helpers/types";
 
 const initialState = {
-  gameDetail: null as Game | null,
+  gameDetail: null as GameDetailsScheme | null,
   loading: false,
   error: null as string | null,
 };

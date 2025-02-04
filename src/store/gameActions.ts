@@ -23,7 +23,9 @@ export const fetchGameData = () => {
         throw new Error("Could not fetch game data!");
       }
 
-      return await response.json();
+      const data = await response.json();
+
+      return data;
     };
 
     try {
@@ -60,7 +62,9 @@ export const fetchGameDetailsData = (id: string) => {
         throw new Error("Could not fetch game data!");
       }
 
-      return await response.json();
+      const data = await response.json();
+
+      return data;
     };
 
     try {

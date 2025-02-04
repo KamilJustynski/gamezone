@@ -13,6 +13,7 @@ const gameSlice = createSlice({
   reducers: {
     fetchGameRequest: (state) => {
       state.loading = true;
+      state.games = [];
       state.error = null;
     },
     fetchGameSuccess: (state, action) => {
