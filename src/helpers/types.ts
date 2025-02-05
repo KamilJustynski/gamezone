@@ -15,6 +15,7 @@ export interface GameDetailsScheme {
   description: string;
   developer: string;
   freetogame_profile_url: string;
+  short_description:string
   game_url: string;
   genre: string;
   minimum_system_requirements: GameDetailsSystem;

@@ -25,6 +25,7 @@ export const GameDetailsPage = () => {
       <div>
         <GameDetails
           thumbnail={gameDetail.thumbnail}
+          short_description={gameDetail.short_description}
           description={gameDetail.description}
           freetogame_profile_url={gameDetail.freetogame_profile_url}
           developer={gameDetail.developer}
