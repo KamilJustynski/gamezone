@@ -8,15 +8,16 @@ export const GameCard: React.FC<Game> = ({
   id,
   genre,
 }) => {
+  title = title.replace(/:/g, " ");
   return (
-    <Link to={id.toString()}>
+    <Link to={`${title}/${id.toString()}`}>
       <div
         key={id}
         className="w-full h-full flex flex-col rounded-lg shadow-sm hover:scale-105 duration-200"
       >
         <img className="rounded-t-lg w-full" src={thumbnail} alt="" />
 
-        <div className="flex flex-col justify-between p-5 h-full rounded-xl bg-gray-800/60">
+        <div className="flex flex-col justify-between p-5 h-full rounded-b-lg bg-gray-800/60">
           <h5 className="mb-2 text-xl font-bold tracking-tight dark:text-white">
             {title}
           </h5>
