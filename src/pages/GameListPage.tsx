@@ -50,15 +50,17 @@ export const GameListPage = () => {
             release_date={game.release_date}
           />
         ))}
-        <Pagination
-          games={games}
-          page={page}
-          endIndex={endIndex}
-          totalPages={totalPages}
-          onClickNext={() => changePage(page + 1)}
-          onClickPrev={() => changePage(Math.max(page - 1, 1))}
-        />
       </div>
+      <Pagination
+        games={games}
+        page={page}
+        endIndex={endIndex}
+        totalPages={totalPages}
+        onClickNext={() => changePage(page + 1)}
+        onClickPrev={() => changePage(Math.max(page - 1, 1))}
+        lastPage={() => changePage(totalPages)}
+        firstPage={() => changePage(1)}
+      />
     </div>
   );
 };
