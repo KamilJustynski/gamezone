@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Game } from "../helpers/types";
+import { GameScheme } from "../helpers/types";
 
-const games: Game[] = [];
+const games: GameScheme[] = [];
 
 const gameSlice = createSlice({
   name: "games",
@@ -13,16 +13,21 @@ const gameSlice = createSlice({
   reducers: {
     fetchGameRequest: (state) => {
       state.loading = true;
-      state.games = [];
       state.error = null;
     },
     fetchGameSuccess: (state, action) => {
+      state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
     },
     fetchGameFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    fetchGameSortDataSuccess: (state, action) => {
+      state.games = [];
+      state.loading = false;
+      state.games.push(...action.payload);
     },
   },
 });

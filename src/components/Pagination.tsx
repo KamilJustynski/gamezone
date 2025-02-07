@@ -1,22 +1,11 @@
 import React from "react";
-import { ArrowRight } from "../img/arrowRight";
+import { PaginationScheme } from "../helpers/types";
+import { ArrowRight } from "../img/ArrowRight";
 import { DoubleArrowRight } from "../img/DoubleArrowRight";
 import { ArrowLeft } from "../img/ArrowLeft";
 import { DoubleArrowLeft } from "../img/DoubleArrowLeft";
-import { Game } from "../helpers/types";
 
-interface Pagination {
-  games: Game[];
-  page: number;
-  totalPages: number;
-  endIndex: number;
-  onClickNext: () => void;
-  onClickPrev: () => void;
-  lastPage: () => void;
-  firstPage: () => void;
-}
-
-export const Pagination: React.FC<Pagination> = ({
+export const Pagination: React.FC<PaginationScheme> = ({
   games,
   totalPages,
   page,

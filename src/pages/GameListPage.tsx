@@ -4,6 +4,7 @@ import { fetchGameData } from "../store/gameActions";
 import { RootState, AppDispatch } from "../store/store";
 import { GameCard } from "../components/GameCard";
 import { Pagination } from "../components/Pagination";
+import { Search } from "../components/Search";
 
 export const GameListPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,10 +14,8 @@ export const GameListPage = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (games.length === 0) {
-      dispatch(fetchGameData());
-    }
-  }, [dispatch, games.length]);
+    dispatch(fetchGameData());
+  }, [dispatch]);
 
   if (loading) return <p>Ładowanie...</p>;
   if (error) return <p>Błąd: {error}</p>;
@@ -35,6 +34,7 @@ export const GameListPage = () => {
 
   return (
     <div>
+      <Search />
       <div className="grid grid-cols-4 gap-4 mb-4">
         {paginatedGames.map((game, index) => (
           <GameCard
