@@ -4,7 +4,7 @@ import { fetchGameData } from "../store/gameActions";
 import { RootState, AppDispatch } from "../store/store";
 import { GameCard } from "../components/GameCard";
 import { Pagination } from "../components/Pagination";
-import { Search } from "../components/Search";
+import { Search } from "../components/SearchComponent/Search";
 
 export const GameListPage = () => {
   const dispatch = useDispatch<AppDispatch>();

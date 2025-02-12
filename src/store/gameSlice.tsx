@@ -29,6 +29,16 @@ const gameSlice = createSlice({
       state.loading = false;
       state.games.push(...action.payload);
     },
+    fetchGameByCategory: (state, action) => {
+      state.games = [];
+      state.loading = false;
+      state.games.push(...action.payload);
+    },
+    fetchSortGame: (state, action) => {
+      state.games = [];
+      state.loading = false;
+      state.games.push(...action.payload);
+    },
   },
 });
 
