@@ -200,3 +200,42 @@ export const fetchSortGameBy = (sortBy: string) => {
     }
   };
 };
+
+export const fetchMultipleTagGames = (tag: string, platform: string) => {
+  return async (dispatch: AppDispatch) => {
+    dispatch(gameActions.fetchGameRequest());
+
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=${tag}&platform=${platform}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "92d74b8d63msh2f2e37c44d9a35ap1bf29fjsnaab5de05cdbf",
+            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Could not fetch game!");
+      }
+
+      const data = await response.json();
+
+      return data;
+    };
+
+    try {
+      const data = await fetchData();
+      dispatch(gameActions.fetchMultipleTagSortGame(data));
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        dispatch(gameActions.fetchGameFailure(error));
+      } else {
+        dispatch(gameActions.fetchGameFailure("Could not fetch data!"));
+      }
+    }
+  };
+};

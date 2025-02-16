@@ -39,6 +39,11 @@ const gameSlice = createSlice({
       state.loading = false;
       state.games.push(...action.payload);
     },
+    fetchMultipleTagSortGame: (state, action) => {
+      state.games = [];
+      state.loading = false;
+      state.games.push(...action.payload);
+    },
   },
 });
 
