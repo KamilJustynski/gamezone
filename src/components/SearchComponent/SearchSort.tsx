@@ -13,18 +13,22 @@ export const SearchSort = () => {
   };
   return (
     <>
-      <input
-        list="optionsSortBy"
+      <select
+        required
         className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="Choose sort by..."
         value={selectedSortBy}
         onChange={(e) => setSelectedSortBy(e.target.value)}
-      />
-      <datalist id="optionsSortBy">
-        {SORT_BY.map((sortBy) => (
-          <option key={sortBy} value={sortBy} />
+      >
+        <option value="" disabled>
+          Choose platform...
+        </option>
+        {SORT_BY.map((platform) => (
+          <option key={platform} value={platform}>
+            {platform}
+          </option>
         ))}
-      </datalist>
+      </select>
+
       <button onClick={handleSortGames} className="bg-white">
         Search!
       </button>

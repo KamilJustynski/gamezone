@@ -13,18 +13,22 @@ export const SearchCategory = () => {
   };
   return (
     <>
-      <input
-        list="optionsCat"
+      <select
+        required
         className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="Choose category..."
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
-      />
-      <datalist id="optionsCat">
-        {CATEGORY.map((cat) => (
-          <option key={cat} value={cat} />
+      >
+        <option value="" disabled>
+          Choose platform...
+        </option>
+        {CATEGORY.map((platform) => (
+          <option key={platform} value={platform}>
+            {platform}
+          </option>
         ))}
-      </datalist>
+      </select>
+
       <button onClick={handleCategoryGame} className="bg-white">
         Search!
       </button>

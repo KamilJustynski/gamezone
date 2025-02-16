@@ -14,18 +14,22 @@ export const SearchPlatform = () => {
 
   return (
     <>
-      <input
-        list="options"
+      <select
+        required
         className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="Choose platform..."
         value={selectedPlatform}
         onChange={(e) => setSelectedPlatform(e.target.value)}
-      />
-      <datalist id="options">
+      >
+        <option value="" disabled>
+          Choose platform...
+        </option>
         {PLATFORM.map((platform) => (
-          <option key={platform} value={platform} />
+          <option key={platform} value={platform}>
+            {platform}
+          </option>
         ))}
-      </datalist>
+      </select>
+
       <button onClick={handlePlatform} className="bg-white">
         Search!
       </button>

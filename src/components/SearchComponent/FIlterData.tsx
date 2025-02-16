@@ -51,18 +51,21 @@ export const FilterData = () => {
             <h2 className="text-lg font-bold mb-4">Filter Options</h2>
 
             <div className="mb-3">
-              <input
-                list="optionsPlat"
+              <select
+                required
                 className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Choose platform..."
                 value={selectedPlatform}
                 onChange={(e) => setSelectedPlatform(e.target.value)}
-              />
-              <datalist id="optionsPlat">
+              >
+                <option value="" disabled>
+                  Choose platform...
+                </option>
                 {PLATFORM.map((platform) => (
-                  <option key={platform} value={platform} />
+                  <option key={platform} value={platform}>
+                    {platform}
+                  </option>
                 ))}
-              </datalist>
+              </select>
             </div>
 
             <div className="mb-3">
