@@ -72,7 +72,7 @@ export const fetchGameDetailsData = (id: string) => {
       dispatch(gameDetailsActions.fetchGameDetailsSuccess(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(gameDetailsActions.fetchGameDetailsFailure(error));
+        dispatch(gameDetailsActions.fetchGameDetailsFailure(error.message));
       } else {
         dispatch(
           gameDetailsActions.fetchGameDetailsFailure(
@@ -154,7 +154,7 @@ export const fetchGameByCategory = (category: string) => {
       dispatch(gameActions.fetchGameByCategory(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(gameActions.fetchGameFailure(error));
+        dispatch(gameActions.fetchGameFailure(error.message));
       } else {
         dispatch(gameActions.fetchGameFailure("Could not fetch data!"));
       }
@@ -193,7 +193,7 @@ export const fetchSortGameBy = (sortBy: string) => {
       dispatch(gameActions.fetchSortGame(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(gameActions.fetchGameFailure(error));
+        dispatch(gameActions.fetchGameFailure(error.message));
       } else {
         dispatch(gameActions.fetchGameFailure("Could not fetch data!"));
       }
@@ -201,13 +201,15 @@ export const fetchSortGameBy = (sortBy: string) => {
   };
 };
 
-export const fetchMultipleTagGames = (tag: string, platform: string) => {
+export const fetchMultipleTagGames = (tags: string[], platform: string) => {
   return async (dispatch: AppDispatch) => {
     dispatch(gameActions.fetchGameRequest());
 
+    const tagsString = tags.join(".");
+
     const fetchData = async () => {
       const response = await fetch(
-        `https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=${tag}&platform=${platform}`,
+        `https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=${tagsString}&platform=${platform}`,
         {
           method: "GET",
           headers: {
@@ -232,7 +234,7 @@ export const fetchMultipleTagGames = (tag: string, platform: string) => {
       dispatch(gameActions.fetchMultipleTagSortGame(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(gameActions.fetchGameFailure(error));
+        dispatch(gameActions.fetchGameFailure(error.message));
       } else {
         dispatch(gameActions.fetchGameFailure("Could not fetch data!"));
       }

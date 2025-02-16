@@ -8,14 +8,30 @@ export const FilterData = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedPlatform, setSelectedPlatform] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const handleSort = () => {
-    dispatch(fetchMultipleTagGames(selectedTag, selectedPlatform));
+    dispatch(fetchMultipleTagGames(selectedTags, selectedPlatform));
   };
 
   const handleClick = () => {
     setIsOpen((prevState) => !prevState);
+  };
+
+  const handleTagChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = e.target.value;
+
+    setSelectedTags((prevTags) =>
+      prevTags.includes(selectedValue)
+        ? prevTags.filter((tag) => tag !== selectedValue)
+        : [...prevTags, selectedValue]
+    );
+  };
+
+  const removeTag = (tagToRemove: string) => {
+    setSelectedTags((prevTags) =>
+      prevTags.filter((tag) => tag !== tagToRemove)
+    );
   };
 
   return (
@@ -50,19 +66,43 @@ export const FilterData = () => {
             </div>
 
             <div className="mb-3">
-              <input
-                list="optionsCat"
+              <select
                 className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Choose platform..."
-                value={selectedTag}
-                onChange={(e) => setSelectedTag(e.target.value)}
-              />
-              <datalist id="optionsCat">
+                value={selectedTags}
+                onChange={handleTagChange}
+              >
+                <option value="" disabled>
+                  Choose tags...
+                </option>
                 {CATEGORY.map((cat) => (
-                  <option key={cat} value={cat} />
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
                 ))}
-              </datalist>
+              </select>
             </div>
+
+            {selectedTags.length > 0 && (
+              <div className="mb-3">
+                <h3 className="text-sm font-semibold mb-2">Selected Tags:</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm flex items-center"
+                    >
+                      {tag}
+                      <button
+                        onClick={() => removeTag(tag)}
+                        className="ml-2 text-red-600 hover:text-red-800 font-bold"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <button
               onClick={handleSort}
