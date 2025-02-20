@@ -16,7 +16,7 @@ export const Pagination: React.FC<PaginationScheme> = ({
   firstPage,
 }) => {
   return (
-    <div className="flex justify-center gap-2 items-center text-white mt-5">
+    <div className="flex p-5 justify-center gap-2 items-center text-white">
       <button
         className="disabled:opacity-50 disabled:pointer-events-none cursor-pointer hover:scale-125 duration-150"
         onClick={firstPage}

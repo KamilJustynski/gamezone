@@ -20,7 +20,7 @@ export const CategoryFilter = () => {
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
         <option value="" disabled>
-          Choose platform...
+          Choose category...
         </option>
         {CATEGORY.map((category) => (
           <option key={category} value={category}>
@@ -29,7 +29,10 @@ export const CategoryFilter = () => {
         ))}
       </select>
 
-      <button onClick={handleCategoryGame} className="bg-white">
+      <button
+        onClick={handleCategoryGame}
+        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
+      >
         Search!
       </button>
     </>

@@ -16,7 +16,7 @@ export const PlatformFilter = () => {
     <>
       <select
         required
-        className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full border bg-white h-10 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         value={selectedPlatform}
         onChange={(e) => setSelectedPlatform(e.target.value)}
       >
@@ -30,7 +30,10 @@ export const PlatformFilter = () => {
         ))}
       </select>
 
-      <button onClick={handlePlatform} className="bg-white">
+      <button
+        onClick={handlePlatform}
+        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
+      >
         Search!
       </button>
     </>

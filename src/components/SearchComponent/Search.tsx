@@ -5,7 +5,7 @@ import { MultipleFilter } from "./MultipleFilter";
 
 export const Search = () => {
   return (
-    <div className="w-max mb-5 flex gap-5">
+    <div className="w-max mb-5 flex gap-5 justify-center items-center">
       <PlatformFilter />
       <CategoryFilter />
       <OtherFilter />

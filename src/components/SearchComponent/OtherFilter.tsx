@@ -20,7 +20,7 @@ export const OtherFilter = () => {
         onChange={(e) => setSelectedSortBy(e.target.value)}
       >
         <option value="" disabled>
-          Choose platform...
+          Choose others...
         </option>
         {SORT_BY.map((sort) => (
           <option key={sort} value={sort}>
@@ -29,7 +29,10 @@ export const OtherFilter = () => {
         ))}
       </select>
 
-      <button onClick={handleSortGames} className="bg-white">
+      <button
+        onClick={handleSortGames}
+        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
+      >
         Search!
       </button>
     </>

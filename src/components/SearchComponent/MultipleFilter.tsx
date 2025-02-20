@@ -36,7 +36,10 @@ export const MultipleFilter = () => {
 
   return (
     <>
-      <button onClick={handleClick} className="bg-white p-5">
+      <button
+        onClick={handleClick}
+        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
+      >
         Filter
       </button>
 
