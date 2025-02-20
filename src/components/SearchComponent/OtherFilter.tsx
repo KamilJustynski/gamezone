@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SORT_BY } from "../../helpers/data";
 import { fetchSortGameBy } from "../../store/gameActions";
 
-export const SearchSort = () => {
+export const OtherFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [selectedSortBy, setSelectedSortBy] = useState("");
 
@@ -22,9 +22,9 @@ export const SearchSort = () => {
         <option value="" disabled>
           Choose platform...
         </option>
-        {SORT_BY.map((platform) => (
-          <option key={platform} value={platform}>
-            {platform}
+        {SORT_BY.map((sort) => (
+          <option key={sort} value={sort}>
+            {sort}
           </option>
         ))}
       </select>

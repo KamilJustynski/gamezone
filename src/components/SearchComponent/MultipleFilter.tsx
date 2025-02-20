@@ -4,7 +4,7 @@ import { AppDispatch } from "../../store/store";
 import { fetchMultipleTagGames } from "../../store/gameActions";
 import { PLATFORM, CATEGORY } from "../../helpers/data";
 
-export const FilterData = () => {
+export const MultipleFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedPlatform, setSelectedPlatform] = useState("");

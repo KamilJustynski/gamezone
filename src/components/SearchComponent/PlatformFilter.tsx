@@ -4,7 +4,7 @@ import { AppDispatch } from "../../store/store";
 import { fetchGameByPlatform } from "../../store/gameActions";
 import { PLATFORM } from "../../helpers/data";
 
-export const SearchPlatform = () => {
+export const PlatformFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [selectedPlatform, setSelectedPlatform] = useState("");
 

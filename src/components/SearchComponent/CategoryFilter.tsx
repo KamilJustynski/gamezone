@@ -4,7 +4,7 @@ import { useState } from "react";
 import { fetchGameByCategory } from "../../store/gameActions";
 import { CATEGORY } from "../../helpers/data";
 
-export const SearchCategory = () => {
+export const CategoryFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -22,9 +22,9 @@ export const SearchCategory = () => {
         <option value="" disabled>
           Choose platform...
         </option>
-        {CATEGORY.map((platform) => (
-          <option key={platform} value={platform}>
-            {platform}
+        {CATEGORY.map((category) => (
+          <option key={category} value={category}>
+            {category}
           </option>
         ))}
       </select>
