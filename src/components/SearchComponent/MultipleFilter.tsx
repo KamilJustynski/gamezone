@@ -40,7 +40,7 @@ export const MultipleFilter = () => {
         onClick={handleClick}
         className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
       >
-        Filter
+        More filter
       </button>
 
       {isOpen && (

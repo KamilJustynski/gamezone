@@ -51,9 +51,9 @@ export const GameDetails: React.FC<GameDetailsScheme> = ({
         <p>{description}</p>
       </div>
 
-      <div className="bg-gray-800/60 p-10 rounded-3xl">
+      <div className="bg-gray-800/60 p-10 mb-5 rounded-3xl">
         <h1 className="text-4xl mb-5 font-bold">Screenshots:</h1>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="flex  gap-5">
           {screenshots.map((img) => (
             <img
               key={img.id}

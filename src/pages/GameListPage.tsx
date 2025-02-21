@@ -12,29 +12,41 @@ export const GameListPage = () => {
     (state: RootState) => state.games
   );
   const [page, setPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     dispatch(fetchGameData());
   }, [dispatch]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm]);
+
   if (loading) return <p>Ładowanie...</p>;
+
   if (error) return <p>Błąd: {error}</p>;
 
   const gamesPerPage = 20;
+
+  const filteredGames = games.filter((game) =>
+    game.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const displayedGames = searchTerm ? filteredGames : games;
+
+  const totalPages = Math.ceil(displayedGames.length / gamesPerPage);
   const startIndex = (page - 1) * gamesPerPage;
   const endIndex = startIndex + gamesPerPage;
-  const paginatedGames = games.slice(startIndex, endIndex);
-  const totalPages = Math.ceil(games.length / gamesPerPage);
+  const paginatedGames = displayedGames.slice(startIndex, endIndex);
 
   const changePage = (newPage: number) => {
     setPage(newPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    console.log(page);
   };
 
   return (
     <div>
-      <Search />
+      <Search term={searchTerm} setTerm={setSearchTerm} />
       <div className="grid grid-cols-4 gap-4 mb-4">
         {paginatedGames.map((game, index) => (
           <GameCard
@@ -51,6 +63,11 @@ export const GameListPage = () => {
           />
         ))}
       </div>
+
+      {searchTerm && filteredGames.length === 0 && (
+        <p className="text-white">Brak wyników dla {searchTerm}</p>
+      )}
+
       <Pagination
         games={games}
         page={page}
