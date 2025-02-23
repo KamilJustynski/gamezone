@@ -1,5 +1,6 @@
 import { GameScheme } from "../helpers/types";
 import { Link } from "react-router-dom";
+import { Heart } from "../img/Heart";
 
 export const GameCard: React.FC<GameScheme> = ({
   thumbnail,
@@ -25,13 +26,16 @@ export const GameCard: React.FC<GameScheme> = ({
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {short_description}
           </p>
-          <div className="flex gap-2">
-            <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
-              {genre}
-            </p>
-            <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
-              {platform}
-            </p>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-2">
+              <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
+                {genre}
+              </p>
+              <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
+                {platform}
+              </p>
+            </div>
+            <Heart />
           </div>
         </div>
       </div>
