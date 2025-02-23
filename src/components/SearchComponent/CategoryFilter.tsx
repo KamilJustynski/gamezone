@@ -1,23 +1,32 @@
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
-import { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
 import { fetchGameByCategory } from "../../store/gameActions";
 import { CATEGORY } from "../../helpers/data";
+import { gameActions } from "../../store/gameSlice";
 
 export const CategoryFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const selectedCategory = useSelector(
+    (state: RootState) => state.games.selectedCategory
+  );
+
+  const handleSelectedCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(gameActions.setSelectedCategory(e.target.value));
+  };
 
   const handleCategoryGame = () => {
     if (selectedCategory) dispatch(fetchGameByCategory(selectedCategory));
   };
+
   return (
     <>
       <select
         required
         className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         value={selectedCategory}
-        onChange={(e) => setSelectedCategory(e.target.value)}
+        onChange={handleSelectedCategory}
       >
         <option value="" disabled>
           Choose category...

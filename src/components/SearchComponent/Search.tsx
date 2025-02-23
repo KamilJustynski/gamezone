@@ -24,7 +24,7 @@ export const Search: React.FC<Scheme> = ({ term, setTerm }) => {
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           placeholder="Search game..."
-          className="p-2 border rounded w-[200px] bg-white"
+          className="p-2 border rounded-lg w-[200px] bg-white"
         />
       </div>
     </div>

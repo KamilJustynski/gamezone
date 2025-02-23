@@ -1,23 +1,32 @@
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
+import React from "react";
 import { SORT_BY } from "../../helpers/data";
 import { fetchSortGameBy } from "../../store/gameActions";
+import { gameActions } from "../../store/gameSlice";
 
 export const OtherFilter = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [selectedSortBy, setSelectedSortBy] = useState("");
+  const selectedAnotherTag = useSelector(
+    (state: RootState) => state.games.selectedAnotherTag
+  );
+
+  const handleSelectedAnotherTag = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    dispatch(gameActions.setSelectedAnotherTags(e.target.value));
+  };
 
   const handleSortGames = () => {
-    dispatch(fetchSortGameBy(selectedSortBy));
+    dispatch(fetchSortGameBy(selectedAnotherTag));
   };
   return (
     <>
       <select
         required
         className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={selectedSortBy}
-        onChange={(e) => setSelectedSortBy(e.target.value)}
+        value={selectedAnotherTag}
+        onChange={handleSelectedAnotherTag}
       >
         <option value="" disabled>
           Choose others...

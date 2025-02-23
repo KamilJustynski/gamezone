@@ -45,9 +45,9 @@ export const GameListPage = () => {
   };
 
   return (
-    <div>
+    <div className="p-5">
       <Search term={searchTerm} setTerm={setSearchTerm} />
-      <div className="grid grid-cols-4 gap-4 mb-4">
+      <div className="container grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 mb-4">
         {paginatedGames.map((game, index) => (
           <GameCard
             key={index}

@@ -112,7 +112,7 @@ export const fetchGameByPlatform = (platform: string) => {
 
     try {
       const data = await fetchData();
-      dispatch(gameActions.fetchGameSortDataSuccess(data));
+      dispatch(gameActions.fetchGameSortByPlatform(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(gameActions.fetchGameFailure(error.message));
@@ -151,7 +151,7 @@ export const fetchGameByCategory = (category: string) => {
 
     try {
       const data = await fetchData();
-      dispatch(gameActions.fetchGameByCategory(data));
+      dispatch(gameActions.fetchGameSortByCategory(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(gameActions.fetchGameFailure(error.message));
@@ -190,7 +190,7 @@ export const fetchSortGameBy = (sortBy: string) => {
 
     try {
       const data = await fetchData();
-      dispatch(gameActions.fetchSortGame(data));
+      dispatch(gameActions.fetchGameSortByAnotherTags(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(gameActions.fetchGameFailure(error.message));
@@ -231,7 +231,7 @@ export const fetchMultipleTagGames = (tags: string[], platform: string) => {
 
     try {
       const data = await fetchData();
-      dispatch(gameActions.fetchMultipleTagSortGame(data));
+      dispatch(gameActions.fetchGameSortByMultipleTag(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(gameActions.fetchGameFailure(error.message));

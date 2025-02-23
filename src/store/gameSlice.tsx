@@ -9,6 +9,9 @@ const gameSlice = createSlice({
     games,
     loading: false,
     error: null,
+    selectedPlatform: "",
+    selectedCategory: "",
+    selectedAnotherTag: "",
   },
   reducers: {
     fetchGameRequest: (state) => {
@@ -19,27 +22,43 @@ const gameSlice = createSlice({
       state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
+      state.selectedPlatform = "";
     },
     fetchGameFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
-    fetchGameSortDataSuccess: (state, action) => {
+    fetchGameSortByPlatform: (state, action) => {
       state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
     },
-    fetchGameByCategory: (state, action) => {
+    setSelectedPlatform: (state, action) => {
+      state.selectedPlatform = action.payload;
+      state.selectedCategory = "";
+      state.selectedAnotherTag = "";
+    },
+    fetchGameSortByCategory: (state, action) => {
       state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
     },
-    fetchSortGame: (state, action) => {
+    setSelectedCategory: (state, action) => {
+      state.selectedCategory = action.payload;
+      state.selectedPlatform = "";
+      state.selectedAnotherTag = "";
+    },
+    fetchGameSortByAnotherTags: (state, action) => {
       state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
     },
-    fetchMultipleTagSortGame: (state, action) => {
+    setSelectedAnotherTags: (state, action) => {
+      state.selectedAnotherTag = action.payload;
+      state.selectedCategory = "";
+      state.selectedPlatform = "";
+    },
+    fetchGameSortByMultipleTag: (state, action) => {
       state.games = [];
       state.loading = false;
       state.games.push(...action.payload);
