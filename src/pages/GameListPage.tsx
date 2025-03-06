@@ -5,6 +5,7 @@ import { RootState, AppDispatch } from "../store/store";
 import { GameCard } from "../components/GameCard";
 import { Pagination } from "../components/Pagination";
 import { Search } from "../components/SearchComponent/Search";
+import { Hourglass } from "react-loader-spinner";
 
 export const GameListPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,7 +23,20 @@ export const GameListPage = () => {
     setPage(1);
   }, [searchTerm]);
 
-  if (loading) return <p>Ładowanie...</p>;
+  if (loading)
+    return (
+      <div className="flex w-full h-full items-center justify-center">
+        <Hourglass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={["#306cce", "#72a1ed"]}
+        />
+      </div>
+    );
 
   if (error) return <p>Błąd: {error}</p>;
 
