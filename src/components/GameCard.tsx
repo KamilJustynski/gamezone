@@ -2,7 +2,9 @@ import { GameScheme } from "../helpers/types";
 import { Link } from "react-router-dom";
 import { Heart } from "../img/Heart";
 import { SolidHeart } from "../img/SolidHeart";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FavoritesGameAction } from "../store/favoritesSlice";
+import { RootState } from "../store/store";
 
 export const GameCard: React.FC<GameScheme> = ({
   thumbnail,
@@ -12,11 +14,17 @@ export const GameCard: React.FC<GameScheme> = ({
   platform,
   genre,
 }) => {
-  const [isFavourite, setiIsFavourite] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const favorites = useSelector(
+    (state: RootState) => state.favorites.favorites
+  );
 
-  const handleClick = () => {
-    setiIsFavourite((prev) => !prev);
+  const isFavorite = favorites.includes(id.toString());
+
+  const handleFavoriteClick = () => {
+    dispatch(FavoritesGameAction.toggleFavorite(id.toString()));
   };
+
   title = title.replace(/:/g, " ");
   return (
     <Link to={`${title}/${id.toString()}`}>
@@ -47,11 +55,11 @@ export const GameCard: React.FC<GameScheme> = ({
               className="cursor-pointer hover:scale-105 ease-in-out duration-150"
               onClick={(e) => {
                 e.stopPropagation();
-                e.preventDefault(); // 🚫 Zatrzymuje propagację kliknięcia do <Link>
-                handleClick(); // ❤️ Zmienia stan isFavourite
+                e.preventDefault();
+                handleFavoriteClick();
               }}
             >
-              {isFavourite ? <SolidHeart /> : <Heart />}
+              {isFavorite ? <SolidHeart /> : <Heart />}
             </button>
           </div>
         </div>
