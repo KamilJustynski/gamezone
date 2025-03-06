@@ -30,6 +30,7 @@ export const fetchGameData = () => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 500));
       dispatch(gameActions.fetchGameSuccess(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -69,6 +70,7 @@ export const fetchGameDetailsData = (id: string) => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 300));
       dispatch(gameDetailsActions.fetchGameDetailsSuccess(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -112,6 +114,7 @@ export const fetchGameByPlatform = (platform: string) => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 300));
       dispatch(gameActions.fetchGameSortByPlatform(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -151,6 +154,7 @@ export const fetchGameByCategory = (category: string) => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 300));
       dispatch(gameActions.fetchGameSortByCategory(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -190,6 +194,7 @@ export const fetchSortGameBy = (sortBy: string) => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 300));
       dispatch(gameActions.fetchGameSortByAnotherTags(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -231,6 +236,7 @@ export const fetchMultipleTagGames = (tags: string[], platform: string) => {
 
     try {
       const data = await fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 300));
       dispatch(gameActions.fetchGameSortByMultipleTag(data));
     } catch (error: unknown) {
       if (error instanceof Error) {
