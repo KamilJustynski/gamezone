@@ -1,6 +1,8 @@
 import { GameScheme } from "../helpers/types";
 import { Link } from "react-router-dom";
 import { Heart } from "../img/Heart";
+import { SolidHeart } from "../img/SolidHeart";
+import { useState } from "react";
 
 export const GameCard: React.FC<GameScheme> = ({
   thumbnail,
@@ -10,6 +12,11 @@ export const GameCard: React.FC<GameScheme> = ({
   platform,
   genre,
 }) => {
+  const [isFavourite, setiIsFavourite] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setiIsFavourite((prev) => !prev);
+  };
   title = title.replace(/:/g, " ");
   return (
     <Link to={`${title}/${id.toString()}`}>
@@ -35,7 +42,17 @@ export const GameCard: React.FC<GameScheme> = ({
                 {platform}
               </p>
             </div>
-            <Heart />
+
+            <button
+              className="cursor-pointer hover:scale-105 ease-in-out duration-150"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault(); // 🚫 Zatrzymuje propagację kliknięcia do <Link>
+                handleClick(); // ❤️ Zmienia stan isFavourite
+              }}
+            >
+              {isFavourite ? <SolidHeart /> : <Heart />}
+            </button>
           </div>
         </div>
       </div>
