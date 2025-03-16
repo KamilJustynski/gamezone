@@ -37,10 +37,7 @@ export const PlatformFilter = () => {
         ))}
       </select>
 
-      <button
-        onClick={handlePlatform}
-        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
-      >
+      <button onClick={handlePlatform} className="info-element">
         Search!
       </button>
     </>

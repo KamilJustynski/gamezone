@@ -30,25 +30,23 @@ export const GameCard: React.FC<GameScheme> = ({
     <Link to={`${title}/${id.toString()}`}>
       <div
         key={id}
-        className="w-full h-full flex flex-col rounded-lg shadow-sm hover:scale-105 duration-200"
+        className="w-full h-full flex flex-col overflow-hidden  relative rounded-2xl p-5 hover:scale-[102%] duration-200"
       >
-        <img className="rounded-t-lg w-full" src={thumbnail} alt="" />
+        <div className="bg-gradient-to-l from-[#3DBDA7] to-[#067D71] w-[600px] h-[600px] absolute rotate-[80rad] -left-90 -top-10"></div>
+        <div className="bg-gradient-to-l to-[#3DBDA7] from-[#067d718e] w-[600px] h-[600px] absolute rotate-[80rad] left-50 -top-10"></div>
+        <img
+          className="rounded-xl z-40 w-full"
+          src={thumbnail}
+          alt="Game-image"
+        />
 
-        <div className="flex flex-col justify-between p-5 h-full rounded-b-lg bg-gray-800/60">
-          <h5 className="mb-2 text-xl font-bold tracking-tight dark:text-white">
-            {title}
-          </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {short_description}
-          </p>
+        <div className="flex flex-col text-white justify-between py-5 h-full z-40">
+          <h5 className="mb-2 text-xl font-bold">{title}</h5>
+          <p className="mb-2 font-normal">{short_description}</p>
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
-              <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
-                {genre}
-              </p>
-              <p className="block items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 rounded-lg  dark:bg-blue-600">
-                {platform}
-              </p>
+              <p className="info-element">{genre}</p>
+              <p className="info-element">{platform}</p>
             </div>
 
             <button

@@ -38,10 +38,7 @@ export const CategoryFilter = () => {
         ))}
       </select>
 
-      <button
-        onClick={handleCategoryGame}
-        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
-      >
+      <button onClick={handleCategoryGame} className="info-element">
         Search!
       </button>
     </>

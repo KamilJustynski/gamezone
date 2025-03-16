@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface GameScheme {
   id: number;
   title: string;
@@ -50,4 +52,9 @@ export interface PaginationScheme {
   onClickPrev: () => void;
   lastPage: () => void;
   firstPage: () => void;
+}
+
+export interface AsideElementScheme {
+  to: string;
+  icon: ReactNode;
 }

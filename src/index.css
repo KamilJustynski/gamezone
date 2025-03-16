@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #3dbda7;
+  --color-primaryDark: #00453f;
+  --color-greenDark: #067d71;
+  --color-secondCircle: #03b397;
+  --color-gradientFirstBox: linear-gradient(to bottom, #3dbda7, #067d71);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.info-element {
+  @apply block items-center px-3 py-2 text-sm font-medium text-center bg-gradient-to-r from-greenDark to-primaryDark rounded-lg text-white cursor-pointer;
+}

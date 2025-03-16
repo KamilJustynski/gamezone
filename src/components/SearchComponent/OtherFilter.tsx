@@ -38,10 +38,7 @@ export const OtherFilter = () => {
         ))}
       </select>
 
-      <button
-        onClick={handleSortGames}
-        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
-      >
+      <button onClick={handleSortGames} className="info-element">
         Search!
       </button>
     </>

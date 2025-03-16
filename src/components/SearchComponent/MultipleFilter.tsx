@@ -36,10 +36,7 @@ export const MultipleFilter = () => {
 
   return (
     <>
-      <button
-        onClick={handleClick}
-        className="bg-[#155DFC] h-10 rounded-lg px-2 cursor-pointer"
-      >
+      <button onClick={handleClick} className="info-element">
         More filter
       </button>
 
@@ -50,7 +47,7 @@ export const MultipleFilter = () => {
             onClick={handleClick}
           ></div>
 
-          <div className="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg w-80">
+          <div className="fixed z-50 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg w-80">
             <h2 className="text-lg font-bold mb-4">Filter Options</h2>
 
             <div className="mb-3">
@@ -110,10 +107,7 @@ export const MultipleFilter = () => {
               </div>
             )}
 
-            <button
-              onClick={handleSort}
-              className="w-full mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            >
+            <button onClick={handleSort} className="info-element">
               Search
             </button>
           </div>
