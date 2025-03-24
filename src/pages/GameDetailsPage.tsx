@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import { fetchGameDetailsData } from "../store/gameActions";
-import { GameDetails } from "../components/GameDetails";
+import { GameDetails } from "../components/GameDetails/GameDetails";
 import { Hourglass } from "react-loader-spinner";
 
 export const GameDetailsPage = () => {

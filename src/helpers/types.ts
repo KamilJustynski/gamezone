@@ -14,20 +14,20 @@ export interface GameScheme {
 }
 
 export interface GameDetailsScheme {
-  description: string;
-  developer: string;
-  freetogame_profile_url: string;
-  short_description: string;
-  game_url: string;
-  genre: string;
-  minimum_system_requirements: GameDetailsSystemScheme;
-  platform: string;
-  publisher: string;
-  release_date: string;
-  screenshots: GameDetailsScreenshotsScheme[];
-  status: string;
-  thumbnail: string;
-  title: string;
+  description?: string;
+  developer?: string;
+  freetogame_profile_url?: string;
+  short_description?: string;
+  game_url?: string;
+  genre?: string;
+  minimum_system_requirements?: GameDetailsSystemScheme;
+  platform?: string;
+  publisher?: string;
+  release_date?: string;
+  screenshots?: GameDetailsScreenshotsScheme[];
+  status?: string;
+  thumbnail?: string;
+  title?: string;
 }
 
 interface GameDetailsSystemScheme {
