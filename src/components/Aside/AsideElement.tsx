@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { AsideElementScheme } from "../helpers/types";
+import { AsideElementScheme } from "../../helpers/types";
 
 export const AsideElement: React.FC<AsideElementScheme> = ({ to, icon }) => {
   return (
