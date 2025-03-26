@@ -16,20 +16,22 @@ export const GameDetails: React.FC<GameDetailsScheme> = ({
 }) => {
   return (
     <div className="text-white flex flex-col gap-5">
-      <MainInfo
-        thumbnail={thumbnail}
-        title={title}
-        short_description={short_description}
-        genre={genre}
-        game_url={game_url}
-        publisher={publisher}
-        platform={platform}
-        release_date={release_date}
-      />
+      <div className="flex gap-5">
+        <MainInfo
+          thumbnail={thumbnail}
+          title={title}
+          short_description={short_description}
+          genre={genre}
+          game_url={game_url}
+          publisher={publisher}
+          platform={platform}
+          release_date={release_date}
+        />
 
-      <div className="bg-primaryDark p-10 rounded-3xl">
-        <p className="mb-5 font-bold text-4xl">Description:</p>
-        <p>{description}</p>
+        <div className="bg-primaryDark w-1/2 p-10 rounded-3xl">
+          <p className="mb-5 font-bold text-4xl">Description:</p>
+          <p>{description}</p>
+        </div>
       </div>
 
       <div className="bg-primaryDark p-10 mb-5 rounded-3xl">
