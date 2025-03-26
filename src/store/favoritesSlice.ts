@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { GameScheme } from "../helpers/types";
 
 type FavoritesState = {
-  favorites: string[];
+  favorites: GameScheme[];
 };
 
 const initialState: FavoritesState = {
@@ -13,11 +14,13 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     toggleFavorite: (state, action) => {
-      const gameId = action.payload;
-      if (state.favorites.includes(gameId)) {
-        state.favorites = state.favorites.filter((id) => id !== gameId);
+      const game: GameScheme = action.payload;
+      const exists = state.favorites.some((fav) => fav.id === game.id);
+
+      if (exists) {
+        state.favorites = state.favorites.filter((fav) => fav.id !== game.id);
       } else {
-        state.favorites.push(gameId);
+        state.favorites.push(game);
       }
 
       localStorage.setItem("favorites", JSON.stringify(state.favorites));

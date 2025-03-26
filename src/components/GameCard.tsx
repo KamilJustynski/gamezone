@@ -19,10 +19,19 @@ export const GameCard: React.FC<GameScheme> = ({
     (state: RootState) => state.favorites.favorites
   );
 
-  const isFavorite = favorites.includes(id.toString());
+  const isFavorite = favorites.some((fav) => fav.id === id);
 
   const handleFavoriteClick = () => {
-    dispatch(FavoritesGameAction.toggleFavorite(id.toString()));
+    dispatch(
+      FavoritesGameAction.toggleFavorite({
+        id,
+        title,
+        thumbnail,
+        short_description,
+        genre,
+        platform,
+      })
+    );
   };
 
   title = title.replace(/:/g, " ");
@@ -57,7 +66,7 @@ export const GameCard: React.FC<GameScheme> = ({
                 handleFavoriteClick();
               }}
             >
-              {isFavorite ? <SolidHeart /> : <Heart />}
+              {isFavorite ? <SolidHeart color="red" /> : <Heart />}
             </button>
           </div>
         </div>
