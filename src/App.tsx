@@ -1,17 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
+import { StartPage } from "./pages/StartPage";
 import { GameListPage } from "./pages/GameListPage";
 import { GameCategoryPage } from "./pages/GameCategoryPage";
 import { GameDetailsPage } from "./pages/GameDetailsPage";
+import { FavoritePage } from "./pages/FavoritePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <p>WOOOOOPS SSOOOOO SOOORRRY MEEEEEN</p>,
     children: [
       {
         index: true,
-        element: <h1>Strona startowa</h1>,
+        element: <StartPage />,
       },
       {
         path: "list",
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "favourite",
-        element: <h1>Ulubione gry</h1>,
+        element: <FavoritePage />,
       },
     ],
   },
