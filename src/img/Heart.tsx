@@ -6,7 +6,7 @@ export const Heart = () => {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="#fff"
-      className="h-8 w-8"
+      className="size-6"
     >
       <path
         strokeLinecap="round"
