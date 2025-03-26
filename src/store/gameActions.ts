@@ -214,7 +214,7 @@ export const fetchMultipleTagGames = (tags: string[], platform: string) => {
 
     const fetchData = async () => {
       const response = await fetch(
-        `https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=${tagsString}&platform=${platform}`,
+        `https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=${tagsString}}&platform=${platform}`,
         {
           method: "GET",
           headers: {

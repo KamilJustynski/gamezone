@@ -1,7 +1,4 @@
 export const PLATFORM: string[] = ["all", "pc", "browser"];
-PLATFORM[0] = "All games";
-PLATFORM[1] = "PC";
-PLATFORM[2] = "Browser";
 
 export const CATEGORY: string[] = [
   "mmorpg",
@@ -57,8 +54,3 @@ export const SORT_BY: string[] = [
   "alphabetical",
   "relevance",
 ];
-
-SORT_BY[0] = "Release date";
-SORT_BY[1] = "Popularity";
-SORT_BY[2] = "Alphabetical";
-SORT_BY[3] = "Relevance";
