@@ -58,3 +58,12 @@ export interface AsideElementScheme {
   to: string;
   icon: ReactNode;
 }
+
+
+export interface AsideScheme {
+  children: ReactNode
+}
+
+export interface ScreenshotsScheme {
+  screenshots: GameDetailsScreenshotsScheme[]
+}
