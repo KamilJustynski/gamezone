@@ -1,6 +1,7 @@
 import React from "react";
 import { GameDetailsScheme } from "../../helpers/types";
 import { MainInfo } from "./MainInfo";
+import { Screenshots } from "./Screenshots";
 
 export const GameDetails: React.FC<GameDetailsScheme> = ({
   description,
@@ -34,19 +35,7 @@ export const GameDetails: React.FC<GameDetailsScheme> = ({
         </div>
       </div>
 
-      <div className="bg-primaryDark p-10 mb-5 rounded-3xl">
-        <h1 className="text-4xl mb-5 font-bold">Screenshots:</h1>
-        <div className="flex  gap-5">
-          {screenshots!.map((img) => (
-            <img
-              key={img.id}
-              src={img.image}
-              alt="Screenshots"
-              className="rounded-2xl w-auto h-[200px]"
-            />
-          ))}
-        </div>
-      </div>
+      <Screenshots screenshots={screenshots!} />
     </div>
   );
 };
