@@ -7,8 +7,6 @@ export const FavoritePage = () => {
     (state: RootState) => state.favorites.favorites
   );
 
-  console.log(favorites);
-
   return (
     <div>
       <div className="container grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  gap-8 mb-4">
