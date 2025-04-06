@@ -24,11 +24,11 @@ export const OtherFilter = () => {
     <>
       <select
         required
-        className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className={`w-full border ${selectedAnotherTag === "" ? "text-gray-400" : "text-black"} bg-white border-gray-300 rounded-lg p-2`}
         value={selectedAnotherTag}
         onChange={handleSelectedAnotherTag}
       >
-        <option value="" disabled>
+        <option className="text-red-500" value="" disabled>
           Choose others...
         </option>
         {SORT_BY.map((sort) => (

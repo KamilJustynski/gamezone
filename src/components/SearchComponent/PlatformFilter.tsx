@@ -23,7 +23,7 @@ export const PlatformFilter = () => {
     <>
       <select
         required
-        className="w-full border bg-white h-10 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className={`w-full border ${selectedPlatform === "" ? "text-gray-400" : "text-black"} bg-white h-10 border-gray-300 rounded-lg p-2`}
         value={selectedPlatform}
         onChange={handleSelectedPlatform}
       >

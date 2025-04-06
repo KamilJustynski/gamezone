@@ -24,7 +24,7 @@ export const CategoryFilter = () => {
     <>
       <select
         required
-        className="w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className={`${selectedCategory === "" ? "text-gray-400" : "text-black"} w-full border bg-white border-gray-300 rounded-lg p-2`}
         value={selectedCategory}
         onChange={handleSelectedCategory}
       >
