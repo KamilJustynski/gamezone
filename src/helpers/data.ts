@@ -54,3 +54,13 @@ export const SORT_BY: string[] = [
   "alphabetical",
   "relevance",
 ];
+
+export const FRIENDS_LIST = [
+  { img: "friend.png", stat: "online", inGame: true },
+  { img: "friend1.png", stat: "online", inGame: true },
+  { img: "friend2.png", stat: "online", inGame: false },
+  { img: "friend3.png", stat: "offline", inGame: false },
+  { img: "friend4.png", stat: "offline", inGame: false },
+  { img: "friend5.png", stat: "offline", inGame: false },
+  { img: "friend6.png", stat: "offline", inGame: false },
+];
