@@ -62,5 +62,9 @@ export const FRIENDS_LIST = [
   { img: "friend3.png", stat: "offline", inGame: false },
   { img: "friend4.png", stat: "offline", inGame: false },
   { img: "friend5.png", stat: "offline", inGame: false },
-  { img: "friend6.png", stat: "offline", inGame: false },
+];
+
+export const CHAT_LIST = [
+  { img: "friend.png", stat: "online", mess: 3 },
+  { img: "friend1.png", stat: "offline", mess: 1 },
 ];

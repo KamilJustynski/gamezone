@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
-import { StartPage } from "./pages/StartPage";
 import { GameListPage } from "./pages/GameListPage";
 import { GameCategoryPage } from "./pages/GameCategoryPage";
 import { GameDetailsPage } from "./pages/GameDetailsPage";
@@ -14,14 +13,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <StartPage />,
-      },
-      {
-        path: "list",
         element: <GameListPage />,
       },
       {
-        path: "list/:game/:id",
+        path: ":game/:id",
         element: <GameDetailsPage />,
       },
       {

@@ -9,6 +9,7 @@ export const FavoritePage = () => {
 
   return (
     <div>
+      <h1 className="mb-4 text-4xl text-white font-bold">Favorites game</h1>
       <div className="container grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  gap-8 mb-4">
         {favorites.map((game, index) => (
           <GameCard

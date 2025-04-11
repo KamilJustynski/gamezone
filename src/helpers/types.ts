@@ -59,11 +59,16 @@ export interface AsideElementScheme {
   icon: ReactNode;
 }
 
-
 export interface AsideScheme {
-  children: ReactNode
+  children: ReactNode;
+  height?: string;
+}
+
+export interface RightAsideScheme {
+  children: ReactNode;
+  icon: ReactNode;
 }
 
 export interface ScreenshotsScheme {
-  screenshots: GameDetailsScreenshotsScheme[]
+  screenshots: GameDetailsScreenshotsScheme[];
 }

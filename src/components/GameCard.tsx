@@ -51,7 +51,12 @@ export const GameCard: React.FC<GameScheme> = ({
 
         <div className="flex flex-col text-white justify-between py-5 h-full z-40">
           <h5 className="mb-2 text-xl font-bold">{title}</h5>
-          <p className="mb-2 font-normal">{short_description}</p>
+          <p className="mb-2 font-normal">
+            {" "}
+            {short_description.length > 150
+              ? short_description.slice(0, 150) + "..."
+              : short_description}
+          </p>
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
               <p className="info-element">{genre}</p>

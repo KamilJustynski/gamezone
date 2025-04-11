@@ -60,6 +60,7 @@ export const GameListPage = () => {
 
   return (
     <div>
+      <h1 className="mb-4 text-4xl text-white font-bold">Game list</h1>
       <Search term={searchTerm} setTerm={setSearchTerm} />
       <div className="container grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 mb-4">
         {paginatedGames.map((game, index) => (
@@ -82,16 +83,20 @@ export const GameListPage = () => {
         <p className="text-white">Brak wyników dla {searchTerm}</p>
       )}
 
-      <Pagination
-        games={games}
-        page={page}
-        endIndex={endIndex}
-        totalPages={totalPages}
-        onClickNext={() => changePage(page + 1)}
-        onClickPrev={() => changePage(Math.max(page - 1, 1))}
-        lastPage={() => changePage(totalPages)}
-        firstPage={() => changePage(1)}
-      />
+      {paginatedGames.length >= 20 ? (
+        <Pagination
+          games={games}
+          page={page}
+          endIndex={endIndex}
+          totalPages={totalPages}
+          onClickNext={() => changePage(page + 1)}
+          onClickPrev={() => changePage(Math.max(page - 1, 1))}
+          lastPage={() => changePage(totalPages)}
+          firstPage={() => changePage(1)}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
