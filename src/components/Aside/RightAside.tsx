@@ -9,7 +9,7 @@ export const RightAside = () => {
           <div className="relative" key={index}>
             <img className="h-12 w-12" src={frn.img} alt="Friend" />
             <div
-              className={`h-5 w-5 top-0 -right-1 ${
+              className={`h-3 w-3 top-1 right-[0.8px] ${
                 frn.stat === "online" ? "bg-green-500" : "bg-gray-500"
               }  rounded-full absolute`}
             ></div>

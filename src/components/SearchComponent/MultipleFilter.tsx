@@ -43,11 +43,11 @@ export const MultipleFilter = () => {
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/70"
+            className="fixed inset-0 z-[99] bg-black/70"
             onClick={handleClick}
           ></div>
 
-          <div className="fixed z-50 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg w-80">
+          <div className="fixed  z-[999] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg w-80">
             <h2 className="text-lg font-bold mb-4">Filter Options</h2>
 
             <div className="mb-3">
