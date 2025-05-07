@@ -1,50 +1,32 @@
-# React + TypeScript + Vite
+# 🎮 Gamezone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **game dashboard** built to strengthen my understanding of key front-end technologies, including:
 
-Currently, two official plugins are available:
+- **Redux** for global state management  
+- **Thunk functions** for handling asynchronous logic  
+- **React Router** for client-side routing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Technologies Used
 
-## Expanding the ESLint configuration
+- **React**
+- **Redux Toolkit + Redux Thunk**
+- **React Router DOM**
+- **TawilwindCSS**
+- **Public game API**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🧠 What I Learned
 
-- Configure the top-level `parserOptions` property like this:
+- How to manage and structure global state effectively using Redux
+- How to write and organize **thunk functions** for async API calls
+- Best practices for using **React Router** in a multi-page front-end application
+- Organizing scalable and modular components for better code maintainability
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Getting Started
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Clone the repository and install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+```bash
+git clone https://github.com/your-username/game-dashboard.git
+cd game-dashboard
+npm install
+npm start
