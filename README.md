@@ -1,5 +1,7 @@
 # 🎮 Gamezone
 
+![Dashboard Screenshot](public/interface.png)
+
 This project is a **game dashboard** built to strengthen my understanding of key front-end technologies, including:
 
 - **Redux** for global state management  
