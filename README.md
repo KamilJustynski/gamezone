@@ -23,12 +23,3 @@ This project is a **game dashboard** built to strengthen my understanding of key
 - Best practices for using **React Router** in a multi-page front-end application
 - Organizing scalable and modular components for better code maintainability
 
-## 🚀 Getting Started
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/your-username/game-dashboard.git
-cd game-dashboard
-npm install
-npm start
